@@ -26,9 +26,9 @@ class DataRadio{
 		let label = document.createElement('label');
 		label.textContent = str;
 		label.setAttribute('for', id);
-        ans.setAttribute('placeholder', '[0.0 - 1.0]');
 	//	if (type === 'text') ans.setAttribute('pattern','[01][.,]{0,1}[0-9]{0,2}');
 		if (type === 'number') {
+            ans.setAttribute('placeholder', '[0.0 - 1.0]');
 		    ans.setAttribute('min','0');
             ans.setAttribute('max','1');
             ans.setAttribute('step','0.01');

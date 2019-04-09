@@ -18,6 +18,7 @@
         body {padding:10px 10px; margin:0 auto;font-size: calc(0.75em + 1vmin); font-family: "Arial";}
         p{font-weight:bold;}
         input{padding: 5px; margin-right:1em; font-size: calc(0.75em + 1vmin); }
+        input:invalid{outline:1px dashed red}
         input[type='number']{width:5em;}
         input[type='text'].project-details {width:15em;}
         input[type='radio']{vertical-align: top;}
@@ -29,8 +30,8 @@
     <h1></h1>
     <p></p>
     <form name="test" class="pure-form pure-form-stacked">
-        <input type="text" name="project-name" class="project-details" placeholder="Project name"/><br/>
-        <input type="text" name="project-product" class="project-details" placeholder="Project product"/>
+        <input type="text" name="project-name" class="project-details" placeholder="Project name" required/><br/>
+        <input type="text" name="project-product" class="project-details" placeholder="Project product" required/>
         <input type="submit" name="submit" value="Get result" class="pure-button pure-button-primary"/>
     </form>
     <p><span id="result"></span></p>
