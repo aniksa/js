@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script>
         //инициализация Firebase - подставьте свои значения
         let config = {
@@ -12,6 +12,7 @@
         };
         firebase.initializeApp(config);
     </script>
+    <script src="parse-url.js" type ="module"></script>
 </head>
 <body>
     <div class="task">
@@ -20,6 +21,7 @@
 		<ul class="links">
 		</ul>
     </div>
-    <script src="script-obj.js"></script>
+
+    <script src="script-module.js" type ="module"></script>
 </body>
 </html>
