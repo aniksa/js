@@ -20,6 +20,12 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Quest PWA">
+    <meta name="description" content="A sample quest app">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script>
         //инициализация Firebase - подставьте свои значения
@@ -28,7 +34,17 @@
             databaseURL: "https://ctc-test-cbf43.firebaseio.com"
         };
         firebase.initializeApp(config);
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then((reg) => {
+                        console.log('Service worker registered.', reg);
+                    });
+            });
+        }
     </script>
+
     <script src="parse-url.js" type ="module"></script>
 </head>
 <body>
