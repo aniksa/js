@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Survey Results</title>
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -14,18 +14,23 @@
         firebase.initializeApp(config);
     </script>
     <style>
-        table{border-collapse:collapse;}
-        td {
+        table{border-spacing:0;}
+        td, th, tr, tbody, thead {
             border:1px solid black;
             text-align: center;
         }
-
+		th{
+			position: sticky;
+			top: 0px;
+			font-weight: 600;
+			background-color: white;
+		}
         td.question {padding-left:1em; text-align: left;}
         td.ans{padding-left:4em; width: 50%; text-align: left;}
     </style>
 </head>
 <body>
-<table id="results"><tr><td> </td></tr></table>
+<table id="results"><thead><tr><th> </th></tr></thead><tbody></tbody></table>
 <script src="table.js"></script>
 </body>
 </html>
