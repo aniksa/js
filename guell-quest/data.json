@@ -1,0 +1,5 @@
+[
+  {"title": "Title1", "text": "Text1", "img":["1.jpg","1.jpg","1.jpg"],"task":"Make a picture","ans":"1","secret": "Secret1"},
+  {"title": "Title2", "text": "Text2", "img":["1.jpg","1.jpg","1.jpg"],"task":"Make a picture","ans":"2","secret": "Secret2"},
+  {"title": "Title3", "text": "Text3", "img":["1.jpg","1.jpg","1.jpg"],"task":"Make a picture","ans":"3","secret": "Secret3"}
+]
