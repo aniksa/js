@@ -1,0 +1,40 @@
+.answer {
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 11px 19px;
+}
+body {
+    font-family: "Comic Sans MS", serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    /*width: 100vw;*/
+    color: #000000;
+}
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.next {
+    background: #10DE50;
+    border-radius: 3px;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    text-transform: capitalize;
+    text-align: center;
+}
+h1{
+    width: 100%;
+    height: 20vh;
+    background-image: radial-gradient(372.22px at 3.47% 7.83%, #10DE50 0%, #A4F525 100%);
+    color:#fff;
+    text-align: center;
+    line-height: 20vh;
+}
+.hidden {display:none}

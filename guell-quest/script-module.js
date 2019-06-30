@@ -2,13 +2,14 @@ import getQueryVariable from './parse-url.js';
 const questions = "data.json";
 const page = {
     //ref: db.ref(`quest/page${Math.max(1,getQueryVariable('p'))}`),
-    title: document.querySelector('.task .title'),
-    text:  document.querySelector('.task .text'),
-    question:  document.querySelector('.task .question'),
-    answer:  document.querySelector('.task .answer'),
-    next:  document.querySelector('.task .next'),
-    win:  document.querySelector('.task .win'),
-    links: document.querySelector('.task .links'),
+    title: document.querySelector('.title'),
+    text:  document.querySelector('.text'),
+    question:  document.querySelector('.question'),
+    answer:  document.querySelector('.answer'),
+    next:  document.querySelector('.next'),
+    secret:  document.querySelector('.secret'),
+    win:  document.querySelector('.win'),
+    links: document.querySelector('.links'),
     data: null,
     current: 0,
     init(data){
@@ -27,9 +28,11 @@ const page = {
         this.title.innerHTML = this.data[q]["title"];
         this.text.innerHTML = this.data[q]["text"];
         this.question.innerHTML = this.data[q]["task"];
+        this.secret.innerHTML = this.data[q]["secret"];
         this.answer.value = '';
         this.answer.classList.toggle('hidden');
         this.next.classList.toggle('hidden');
+        this.secret.classList.toggle('hidden')
         //this.text.innerHTML = this.data[q]["text"];
     },
     showLinks: function(links){
@@ -40,6 +43,7 @@ const page = {
     check(){
         if (this.data[this.current]["ans"] === this.answer.value){
             this.answer.classList.toggle('hidden');
+            this.secret.classList.toggle('hidden');
             if (this.current < this.data.length-1)
                 this.next.classList.toggle('hidden');
             else

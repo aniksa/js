@@ -24,13 +24,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Quest PWA">
     <meta name="description" content="A sample quest app">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1">
     <script src="parse-url.js" type ="module"></script>
-    <style>.hidden {display:none}</style>
+    <link rel = "stylesheet" href="style.css"/>
 </head>
 <body>
 <button id="butInstall" aria-label="Install" hidden>Install</button>
-    <div class="task">
+
         <h1 class="title">Title</h1>
         <p class="text">Text</p>
         <p class="question">Question</p>
@@ -39,7 +39,7 @@
         <p class="win hidden">Good job!</p>
 		<ul class="links">
 		</ul>
-    </div>
+        <p class="secret">Secret</p>
      <script src="install.js"></script>
     <script src="script-module.js" type ="module"></script>
 </body>
