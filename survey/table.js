@@ -27,6 +27,7 @@ const app = {
         ref.once('value', function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
 				app.score.fill(0);
+				if (childSnapshot.key === "questions") return;
                 let childData = childSnapshot.val();
                 /*table.innerHTML += `<tr><td colspan="2" class="project-name">${childData["name"]}</td></tr>`;
                 table.innerHTML += `<tr><td colspan="2" class="project-product">${childData["product"]}</td></tr>`;*/
