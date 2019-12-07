@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Basic JSON Editor Example</title>
+    <title>Agile Survey Questions Editor</title>
     <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
     <style>
         th {display: none;}
@@ -99,7 +99,7 @@
             document.getElementById('submit').addEventListener('click',function() {
                 // Get the value from the editor
                 console.log(editor.getValue());
-                download(JSON.stringify(editor.getValue()), 'json.json', 'application/json');
+                download(JSON.stringify(editor.getValue()), 'data.json', 'application/json');
             });
 
         })
