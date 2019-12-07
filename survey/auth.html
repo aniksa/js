@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Agile survey authentication</title>
+   <!--<link rel="stylesheet" href="adminka_styles.css"/> -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        const config = {
+            apiKey: "AIzaSyAtBEAlA4WI0VDuhRB0f3zYpb6CoI6a_zE",
+            databaseURL: "https://agile-survey.firebaseio.com",
+            projectId: "agile-survey"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+</head>
+<body>
+	<h1>Admin login</h1>
+	<div id="firebaseui-auth-container"></div>
+	<div id="loader">Loading...</div>
+<script>
+		let ui = new firebaseui.auth.AuthUI(firebase.auth());
+		let uiConfig = {
+			signInOptions: [
+			firebase.auth.EmailAuthProvider.PROVIDER_ID
+			],
+		signInSuccessUrl: 'editQuestions.html',
+		callbacks: {
+	    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+	      // User successfully signed in.
+	      // Return type determines whether we continue the redirect automatically
+	      // or whether we leave that to developer to handle.
+	      return true;
+	    },
+	    uiShown: function() {
+	      // The widget is rendered.
+	      // Hide the loader.
+	      document.getElementById('loader').style.display = 'none';
+	    }
+	  }
+	};
+	ui.start('#firebaseui-auth-container', uiConfig);
+
+	</script>
+</body>
+</html>
