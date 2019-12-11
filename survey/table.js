@@ -14,6 +14,17 @@ const app = {
     table : document.getElementById('results'),
     max: 4, //max number of options
 	score: [],
+    setControls(){
+        let btns = document.querySelectorAll('[data-id]');
+        for(let b of btns){
+            b.onclick = function (e) {
+                let confirmation = confirm("This data will be deleted. Are you sure?");
+                if (confirmation)
+                    firebase.database().ref().child(this.dataset.id).remove();
+            }
+        }
+
+    },
     init(data){
         const table = document.getElementById('results');
         for (let ans of data["questions"]){
@@ -32,7 +43,8 @@ const app = {
                 /*table.innerHTML += `<tr><td colspan="2" class="project-name">${childData["name"]}</td></tr>`;
                 table.innerHTML += `<tr><td colspan="2" class="project-product">${childData["product"]}</td></tr>`;*/
                 let k=0;
-                table.children[0].children[0].innerHTML += `<th>${childData["name"]}<br/>${childData["product"]}</th>`;
+                table.children[0].children[0].innerHTML += `<th>${childData["name"]}<br/>${childData["product"]}
+                <br/><button data-id="${childSnapshot.key}">Delete</button></th>`;
                 for (let i=0; i<childData.answers.length; i++){
                     for (let j=0; j<app.max; j++) {
                         answers[k].parentElement.innerHTML += `<td>${childData.answers[i][j]}</td>`;
@@ -45,10 +57,11 @@ const app = {
                         answers[k+j].parentElement.innerHTML += `<td>${+app.score[j].toFixed(3)}</td>`;
                     }
             });
+            app.setControls();
         });
     }
 };
 
 fetch(questions).then(response=> {return response.json();})
-    .then(data => {app.init(data);})
+    .then(data => {app.init(data); })
     .catch(err => { console.log(err);});
