@@ -20,6 +20,7 @@
     </script>
 </head>
 <body>
+<h1><a href="results.html">Methodology Selection Survey Results</a></h1>
 <h1>Methodology Selection Question Editor</h1>
 <button id='submit'>GET JSON</button>
 
@@ -30,7 +31,7 @@
     let editor;
     const questions = "http://aniksa.github.io/js/survey/data.json";
     firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user && user.uid === "mv6JoRisuqeWtsMRwC7ON92n49o1") {
 // User is signed in.
 
     fetch(questions).then(response=> {return response.json();})

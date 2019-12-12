@@ -1,5 +1,9 @@
 const questions = "http://aniksa.github.io/js/survey/data.json";
 const results = {"question":"Result scores", "answers":["1","2","3","4"]};
+let isAdmin = false;
+firebase.auth().onAuthStateChanged(function(u) {
+    if (u && u.uid === "mv6JoRisuqeWtsMRwC7ON92n49o1") isAdmin = true;
+});
 class QuestionAnswer{
     constructor(data, table){
         let tr = `<tr><td class="question" colspan="100">${data["question"]}</td></tr>`;
@@ -43,8 +47,11 @@ const app = {
                 /*table.innerHTML += `<tr><td colspan="2" class="project-name">${childData["name"]}</td></tr>`;
                 table.innerHTML += `<tr><td colspan="2" class="project-product">${childData["product"]}</td></tr>`;*/
                 let k=0;
-                table.children[0].children[0].innerHTML += `<th>${childData["name"]}<br/>${childData["product"]}
-                <br/><button data-id="${childSnapshot.key}">Delete</button></th>`;
+                let th = `<th>${childData["name"]}<br/>${childData["product"]}`;
+                if (isAdmin) th+=`<br/><button data-id="${childSnapshot.key}">Delete</button>`;
+                th+=`</th>`;
+                table.children[0].children[0].innerHTML += th;//`<th>${childData["name"]}<br/>${childData["product"]}
+                //<br/><button data-id="${childSnapshot.key}">Delete</button></th>`;
                 for (let i=0; i<childData.answers.length; i++){
                     for (let j=0; j<app.max; j++) {
                         answers[k].parentElement.innerHTML += `<td>${childData.answers[i][j]}</td>`;
